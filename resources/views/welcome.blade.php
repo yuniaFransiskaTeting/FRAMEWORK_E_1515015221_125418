@@ -38,8 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Nama : Yunia Fransiska Teting</div>
-                <div class="title">NIM  : 1515015221</div>
+                <div class="title">Nama : Fietra Prabaskara <p>NIM : 1515015222</div>
             </div>
         </div>
     </body>
