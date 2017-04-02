@@ -5,19 +5,26 @@
 	<div class="panel-heading">
 		<strong><a href="{{ url('matakuliah') }}">
 		<i style="color:#8a6d3b" class="fa text-default fa-chevron-left"></i>
-		</a>Detail data Ruangan</strong>
+		</a> Detail data Ruangan</strong>
 	</div>
 	
 	<table class="table">
 		<tr>
-			<td>Id:</td>
-			<td>{{$matakuliah->Id}}</td>
+			<td>Id</td>
+			<td>:</td>
+			<td>{{$matakuliah->id}}</td>
 		</tr>
 
 		<tr>
 			<td>title</td>
 			<td>:</td>
 			<td>{{ $matakuliah->title}}</td>
+		</tr>
+
+		<tr>
+			<td>keterangan</td>
+			<td>:</td>
+			<td>{{ $matakuliah->keterangan}}</td>
 		</tr>
 
 		<tr>

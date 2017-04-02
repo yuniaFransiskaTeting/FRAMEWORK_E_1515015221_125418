@@ -7,16 +7,17 @@
 		</a>Tambah data pengguna</strong>
 	</div>
 
+	{!! Form::open(['class' => 'form-horizontal','url' => 'pengguna/simpan']) !!}
+		@include('pengguna.form')
+		
 		<div style="width: 100%;text-align: right;">
 			<button class="btn btn-primary">
-				<i class="fa fa-save"></i>Simpan
+				<i class="fa fa-save">Simpan</i>
 			</button>
 			<button class="btn btn-danger">
-				<i class="fa fa-undo"></i>ulangi
+				<i class="fa fa-undo">Ulangi</i>
 			</button>
 		</div>
-		{!! Form::model(new App\pengguna, ['class' => 'form-horizontal','route' => ['pengguna.tambah']]) !!}
-        		@include('pengguna/form/form', ['submit_text' => 'Tambah Data'])
-		{!! Form::close() !!}
+		{!! form::close() !!}
 		</div>
 @stop

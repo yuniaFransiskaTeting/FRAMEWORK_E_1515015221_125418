@@ -15,10 +15,10 @@ class penggunacontroller extends Controller
     public function awal(){
     	return view('pengguna.awal',['data'=>pengguna::all()]);
     }
-    public function tambah(){
+    public function tambah(request $input){
     	return view('pengguna.tambah');
     }
-    public function simpan(Requests $input){
+    public function simpan(Request $input){
     	$pengguna = new pengguna;
     	$pengguna->username=$input->username;
         $pengguna->password=$input->password;
@@ -28,8 +28,8 @@ class penggunacontroller extends Controller
 
     public function edit($id){
         $pengguna=pengguna::find($id);
-        return view('pengguna.edit', compact('pengguna'));
-    }
+        return view('pengguna.edit')->with (array('pengguna'=>$pengguna));
+    }   
 public function lihat($id){
         $pengguna=pengguna::find($id);
         return view('pengguna.lihat')->with(array('pengguna'=>$pengguna));
@@ -37,12 +37,13 @@ public function lihat($id){
 
     public function update($id, Request $input){
         $pengguna = pengguna::find($id);
-        $input=array_except(Input::all(),'_method');
-        $pengguna->update($input);
-
-        return redirect::route('pengguna.tambah');
+        $pengguna -> username = $input -> username;
+        $pengguna -> password = $input -> password;
+        $informasi = $pengguna-> save()? 'berhasil update data' : 'gagal update date';
+        return redirect('pengguna')-> with(['informasi'=> $informasi]);
     }
-    public function hapus($id){
+    public function hapus($id)
+    {
         $pengguna = pengguna::find($id);
         $informasi = $pengguna->delete() ? 'berhasil hapus data' : 'gagal hapus data';
         return redirect('pengguna')->with(['informasi'=>$informasi]);

@@ -38,7 +38,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Nama : Fietra Prabaskara <p>NIM : 1515015222</div>
+                <div class="title">Laravel-5</div>
+                <div class="title">Yunia F.T</div>
             </div>
         </div>
     </body>

@@ -5,13 +5,14 @@
 	<div class="panel-heading">
 		<strong><a href="{{ url('ruangan') }}">
 		<i style="color:#8a6d3b" class="fa text-default fa-chevron-left"></i>
-		</a>Detail data Ruangan</strong>
+		</a> Detail data Ruangan</strong>
 	</div>
 	
 	<table class="table">
 		<tr>
-			<td>Id:</td>
-			<td>{{$ruangan->Id}}</td>
+			<td>Id</td>
+			<td>:</td>
+			<td>{{$ruangan->id}}</td>
 		</tr>
 
 		<tr>

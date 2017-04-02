@@ -17,10 +17,10 @@ class ruangancontroller extends Controller
     public function tambah(){
         return view('ruangan.tambah');
     }
-    public function simpan(Requests $input){
+    public function simpan(Request $input){
         $ruangan = new ruangan;
         $ruangan->id=$input->id;
-        $ruangan->titlee=$input->title;
+        $ruangan->title=$input->title;
         $informasi = $ruangan->save() ? 'berhasil input' : 'gagal simpan';
         return redirect('ruangan')->with(['informasi'=>$informasi]);
     }
@@ -36,10 +36,10 @@ public function lihat($id){
 
     public function update($id, Request $input){
         $ruangan = ruangan::find($id);
-        $input=array_except(Input::all(),'_method');
-        $ruangan->update($input);
-
-        return redirect::route('ruangan.tambah');
+        $ruangan -> id = $input -> id;
+        $ruangan -> title = $input -> title;
+        $informasi = $ruangan-> save()? 'berhasil update data' : 'gagal update date';
+        return redirect('ruangan')-> with(['informasi'=> $informasi]);
     }
     public function hapus($id){
         $ruangan = ruangan::find($id);
