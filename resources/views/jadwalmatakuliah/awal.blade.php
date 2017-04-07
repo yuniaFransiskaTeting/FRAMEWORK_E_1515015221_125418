@@ -7,6 +7,7 @@
 			<i class="fa fa-plus"></i>jadwalmatakuliah</a>
 			<div class="clearfix"></div>
 	</div>
+	
 	<table class="table">
 		<thead>
 		<tr>

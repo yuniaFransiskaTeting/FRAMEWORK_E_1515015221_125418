@@ -21,6 +21,7 @@ class matakuliahcontroller extends Controller
         $matakuliah = new matakuliah;
         $matakuliah->id=$input->id;
         $matakuliah->title=$input->title;
+        $matakuliah->Keterangan=$input->Keterangan;
         $informasi = $matakuliah->save() ? 'berhasil input' : 'gagal simpan';
         return redirect('matakuliah')->with(['informasi'=>$informasi]);
     }

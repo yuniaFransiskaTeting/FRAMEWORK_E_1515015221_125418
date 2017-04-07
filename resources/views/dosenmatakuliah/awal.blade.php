@@ -10,20 +10,18 @@
 		<thead>
 			<tr>
 				<th>No.</th>
-				<th>Nama Dosen</th>
-				<th>NIP</th>
-				<th>Nama Matakuliah</th>
+				<th>Dosen ID</th>
+				<th>Matakuliah ID</th>
 				<th>Aksi</th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php $x=1; ?>
-			@foreach ($data as $dosenmatakuliah)
+			@foreach ($Semua_Dosen_Matakuliah as $dosenmatakuliah)
 			<tr>
 				<td>{{ $x++}}</td>
-				<td>{{ $dosenmatakuliah->dosen->nama or 'Nama Kosong' }}</td>
-				<td>{{ $dosenmatakuliah->dosen->nip or 'NIP Kosong' }}</td>
-				<td>{{ $dosenmatakuliah->matakuliah->title or 'Matakuliah Kosong' }}</td>
+				<td>{{ $dosenmatakuliah->dosen_id->dosen_id or 'id Kosong' }}</td>
+				<td>{{ $dosenmatakuliah->matakuliah_id->matakuliah_id or 'id Kosong' }}</td>
 				<td>
 					<div class="btn-group" role="group">
 						<a href="{{url('dosenmatakuliah/edit/'.$dosenmatakuliah->id)}}" class="btn btn-warning btn-xs" data-toogle="tooltip" data-placement="top" title="Ubah"><i class="fa fa-pencil"></i></a>

@@ -51,16 +51,16 @@ Route::get('mahasiswa','mahasiswacontroller@awal');
 Route::get('mahasiswa/tambah','mahasiswacontroller@tambah');
 Route::get('mahasiswa/{mahasiswa}', 'mahasiswaController@lihat');
 Route::post('mahasiswa/simpan', 'mahasiswaController@simpan');
-Route::get('mahasiswa/edit/{mahasiswa}', 'mahasiwaController@edit');
+Route::get('mahasiswa/edit/{mahasiswa}', 'mahasiswaController@edit');
 Route::post('mahasiswa/edit/{mahasiswa}', 'mahasiswaController@update');
-Route::get('mahasiswa/hapus/mahasiswa{mahasiswa}', 'mahasiswaController@hapus');
+Route::get('mahasiswa/hapus/{mahasiswa}', 'mahasiswaController@hapus');
 
 
 Route::get('jadwalmatakuliah','jadwalmatakuliahcontroller@awal');
 Route::get('jadwalmatakuliah/tambah','jadwalmatakuliahcontroller@tambah');
 Route::get('jadwalmatakuliah/{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@lihat');
 Route::post('jadwalmatakuliah/simpan', 'jadwalmatakuliahcontroller@simpan');
-Route::get('jadwalmatakuliah	/edit/{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@edit');
+Route::get('jadwalmatakuliah/edit/{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@edit');
 Route::post('jadwalmatakuliah/edit/{jadwalmatakuliah}', 'mahasiswaController@update');
 Route::get('jadwalmatakuliah/hapus/jadwalmatakuliah{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@hapus');
 

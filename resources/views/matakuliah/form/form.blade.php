@@ -4,8 +4,8 @@
 		{!! form::text('title',null,['class'=>'form-control','placeholder'=>"title"]) !!}
 	</div>
 <div class="form-group">
-	<label class="col-sm-2 control-label">keterangan</label>
+	<label class="col-sm-2 control-label">Keterangan</label>
 	<div class="col-sm-10">
-		{!! form::text('keterangan',null,['class'=>'form-control','placeholder'=>"keterangan"]) !!}
+		{!! form::text('Keterangan',null,['class'=>'form-control','placeholder'=>"Keterangan"]) !!}
 	</div>
 </div>

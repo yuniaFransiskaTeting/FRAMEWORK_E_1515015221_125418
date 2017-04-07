@@ -21,6 +21,7 @@ class ruangancontroller extends Controller
         $ruangan = new ruangan;
         $ruangan->id=$input->id;
         $ruangan->title=$input->title;
+        $ruangan->Keterangan=$input->Keterangan;
         $informasi = $ruangan->save() ? 'berhasil input' : 'gagal simpan';
         return redirect('ruangan')->with(['informasi'=>$informasi]);
     }

@@ -24,37 +24,37 @@ class JadwalMatakuliah extends Model
         return $this->belongsTo(DosenMatakuliah::class);
     }
 
-    // public function getNamadsnAttribute(){
-    //     return $this->dosenmatakuliah->dosen->nama;
-    // }
-    // public function getNipdsnAttribute(){
-    //     return $this->dosenmatakuliah->dosen->nip;
-    // }
-    // public function getMKdsnAttribute(){
-    //     return $this->dosenmatakuliah->matakuliah->title;
-    // }
+    public function getNamadsnAttribute(){
+        return $this->dosenmatakuliah->dosen->nama;
+    }
+    public function getNipdsnAttribute(){
+        return $this->dosenmatakuliah->dosen->nip;
+    }
+    public function getMKdsnAttribute(){
+        return $this->dosenmatakuliah->matakuliah->title;
+    }
     
-    // public function getNamamhsAttribute(){
-    //     return $this->mahasiswa->nama;
-    // }
+    public function getNamamhsAttribute(){
+        return $this->mahasiswa->nama;
+    }
 
-    // public function getNimAttribute(){
-    //     return $this->mahasiswa->nim;
-    // }
-    // public function getTitleruanganAttribute(){
-    //     return $this->ruangan->title;
-    // }
-
-    
+    public function getNimAttribute(){
+        return $this->mahasiswa->nim;
+    }
+    public function getTitleruanganAttribute(){
+        return $this->ruangan->title;
+    }
 
     
-    // public function listDosenMatakuliahDanMahasiswaDanRuangan()
-    // {
-    //  $out = [];
-    //  foreach ($this->all() as $jdwlMtk) {
-    //      $out[$jdwlMtk->id] = "{$jdwlMtk->dosenmatakuliah->dosen->nama} {$jdwlMtk->dosenmatakuliah->dosen->nama} {$jdwlMtk->mahasiswa->nama} (Ruangan {$jdwlMtk->ruangan->title})";
-    //  }
-    //  return $out;
-    // }
+
+    
+    public function listDosenMatakuliahDanMahasiswaDanRuangan()
+    {
+     $out = [];
+     foreach ($this->all() as $jdwlMtk) {
+         $out[$jdwlMtk->id] = "{$jdwlMtk->dosenmatakuliah->dosen->nama} {$jdwlMtk->dosenmatakuliah->dosen->nama} {$jdwlMtk->mahasiswa->nama} (Ruangan {$jdwlMtk->ruangan->title})";
+     }
+     return $out;
+    }
     
 }
