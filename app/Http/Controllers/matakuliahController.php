@@ -8,6 +8,7 @@ use App\matakuliah;
 use Input;
 use Redirect;
 use Informasi;
+use App\Http\Requests\matakuliahrequest;
 
 class matakuliahcontroller extends Controller
 {
@@ -17,7 +18,7 @@ class matakuliahcontroller extends Controller
     public function tambah(){
         return view('matakuliah.tambah');
     }
-    public function simpan(Request $input){
+    public function simpan(matakuliahrequest $input){
         $matakuliah = new matakuliah;
         $matakuliah->id=$input->id;
         $matakuliah->title=$input->title;
@@ -35,7 +36,7 @@ public function lihat($id){
         return view('matakuliah.lihat')->with(array('matakuliah'=>$matakuliah));
     }
 
-    public function update($id, Request $input){
+    public function update($id, matakuliahrequest $input){
         $matakuliah = matakuliah::find($id);
         $matakuliah -> id = $input -> id;
         $matakuliah -> title = $input -> title;

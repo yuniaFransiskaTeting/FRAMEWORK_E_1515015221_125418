@@ -22,8 +22,12 @@ class penggunacontroller extends Controller
     	$pengguna = new pengguna;
     	$pengguna->username=$input->username;
         $pengguna->password=$input->password;
+        $this->validate($input,['username'=>'required', 'password'=>'required',]);
         $informasi = $pengguna->save() ? 'berhasil input' : 'gagal simpan';
+
         return redirect('pengguna')->with(['informasi'=>$informasi]);
+
+
     }
 
     public function edit($id){

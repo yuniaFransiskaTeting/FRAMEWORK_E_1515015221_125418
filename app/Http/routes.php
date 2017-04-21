@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('ujiHas', 'RelationshipRebornController@ujiHas');
 
 Route::get('pengguna', 'penggunaController@awal');
 Route::get('pengguna/tambah', 'penggunaController@tambah');
@@ -57,21 +58,21 @@ Route::get('mahasiswa/hapus/{mahasiswa}', 'mahasiswaController@hapus');
 
 
 Route::get('jadwalmatakuliah','jadwalmatakuliahcontroller@awal');
-Route::get('jadwalmatakuliah/tambah','jadwalmatakuliahcontroller@tambah');
+Route::get('jadwalmatakuliah/tambah','jadwalmatakuliahController@tambah');
 Route::get('jadwalmatakuliah/{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@lihat');
-Route::post('jadwalmatakuliah/simpan', 'jadwalmatakuliahcontroller@simpan');
+Route::post('jadwalmatakuliah/simpan', 'jadwalmatakuliahController@simpan');
 Route::get('jadwalmatakuliah/edit/{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@edit');
-Route::post('jadwalmatakuliah/edit/{jadwalmatakuliah}', 'mahasiswaController@update');
-Route::get('jadwalmatakuliah/hapus/jadwalmatakuliah{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@hapus');
+Route::post('jadwalmatakuliah/edit/{jadwalmatakuliah}', 'jadwalmatakuliahController@update');
+Route::get('jadwalmatakuliah/hapus/{jadwalmatakuliah}', 'jadwalmatakuliahcontroller@hapus');
 
 
 Route::get('dosenmatakuliah','dosenmatakuliahcontroller@awal');
 Route::get('dosenmatakuliah/tambah','dosenmatakuliahcontroller@tambah');
-Route::get('dosenmatakuliah/{dosenmatakuliah}', 'dosenmatakuliahController@lihat');
-Route::post('dosenmatakuliah/simpan', 'dosenController@simpan');
-Route::get('dosenmatakuliah/edit/{dosenmatakuliah}', 'dosenmatakuliahController@edit');
-Route::post('dosenmatakuliah/edit/{dosenmatakuliah}', 'dosenmatakuliahController@update');
-Route::get('dosenmatakuliah/hapus/{dosenmatakuliah}', 'dosenmatakuliahController@hapus');
+Route::get('dosenmatakuliah/lihat/{dosenmatakuliah}', 'dosenmatakuliahcontroller@lihat');
+Route::post('dosenmatakuliah/simpan', 'dosenmatakuliahcontroller@simpan');
+Route::get('dosenmatakuliah/edit/{dosenmatakuliah}', 'dosenmatakuliahcontroller@edit');
+Route::post('dosenmatakuliah/edit/{dosenmatakuliah}', 'dosenmatakuliahcontroller@update');
+Route::get('dosenmatakuliah/hapus/{dosenmatakuliah}', 'dosenmatakuliahcontroller@hapus');
 
 
 
@@ -83,4 +84,21 @@ Route::get('/public', function () {
     return view('yunia');
 });
 
+Route::get('/', function(Illuminate\Http\Request $request){
+	echo "ini adalah request dari method get". $request->nama;
+});
+
+
+use Illuminate\Http\Request;
+Route::get('/', function(){
+	echo Form::open(['url'=>'/']).
+		 Form::label('nama').
+		 Form::text('nama', null).
+		 Form::submit('kirim').
+		 Form::close();
+});
+
+Route::post('/', function(Request $request){
+	echo "hasil dari form yang di inputkan adalah : ". $request->nama;
+});
 

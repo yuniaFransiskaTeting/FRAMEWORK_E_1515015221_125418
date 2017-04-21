@@ -9,6 +9,7 @@ use App\dosenmatakuliah;
 use App\dosen;
 use App\Matakuliah;
 use App\JadwalMatakuliah;
+use App\Http\Requests\dosenmatakuliahrequest;
 
 class dosenmatakuliahcontroller extends Controller
 {
@@ -24,8 +25,9 @@ class dosenmatakuliahcontroller extends Controller
         return view('dosenmatakuliah.tambah',compact('dosen','matakuliah'));
         return $this->simpan();
     }
-    public function simpan(Request $input){
+    public function simpan(dosenmatakuliahrequest $input){
        $dosenmatakuliah = new dosenmatakuliah($input->only('dosen_id','matakuliah_id'));
+    
        if($dosenmatakuliah->save()) $this->informasi = "Matakuliah dan Dosen Mengajar berhasil disimpan";
     return redirect('dosenmatakuliah')->with(['informasi'=>$this->informasi]);
     }
@@ -34,14 +36,14 @@ class dosenmatakuliahcontroller extends Controller
         $dosenmatakuliah=DosenMatakuliah::find($id);
         $dosen = new dosen;
         $matakuliah = new matakuliah;
-        return view('dosenmatakuliah.edit', compact('dosenmatakuliah'));
+        return view('dosenmatakuliah.edit', compact('dosenmatakuliah','dosen','matakuliah'));
     }
 public function lihat($id){
         $dosenmatakuliah=DosenMatakuliah::find($id);
-        return view('dosenmatakuliah.lihat')->with(array('dosenmatakuliah'=>$dosenmatakuliah));
+        return view('dosenmatakuliah.lihat', compact('dosenmatakuliah'));
     }
 
-    public function update($id, Request $input){
+    public function update($id, dosenmatakuliahequest $input){
         $dosenmatakuliah = DosenMatakuliah::find($id);
         $dosenmatakuliah->fill($input->only('dosen_id','matakuliah_id'));
         if($dosenmatakuliah->save()) $this->informasi = "matakuliah dan Dosen Mengajar berhasil di update";

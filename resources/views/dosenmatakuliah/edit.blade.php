@@ -7,7 +7,7 @@
 		</a>Perbarui Data Dosen Matakuliah</strong>
 	</div>
 	{!! Form::model($dosenmatakuliah,['url'=>'dosenmatakuliah/edit/'.$dosenmatakuliah->id,'class'=>'form-horizontal'])!!}
-		@include('dosenmatakuliah.form')
+		@include('dosenmatakuliah.form.form')
 		<div style="width:100%;text-align:right;">
 			<button class="btn btn-info"><i class="fa fa-save"></i> Perbarui</button>
 			<button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i> Ulangi</button>
