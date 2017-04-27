@@ -12,6 +12,13 @@
 */
 Route::get('ujiHas', 'RelationshipRebornController@ujiHas');
 
+Route::get('/login', 'sesicontroller@form');
+Route::post('/login', 'sesicontroller@validasi');
+Route::get('/logout', 'sesicontroller@logout');
+Route::get('/', 'sesicontroller@index');
+
+Route::group(['middleware'=>'AutentifikasiUser'], function()
+{
 Route::get('pengguna', 'penggunaController@awal');
 Route::get('pengguna/tambah', 'penggunaController@tambah');
 Route::get('pengguna/{pengguna}', 'penggunaController@lihat');
@@ -77,28 +84,34 @@ Route::get('dosenmatakuliah/hapus/{dosenmatakuliah}', 'dosenmatakuliahcontroller
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('master');
 });
+
+
+});
+
+
+
 
 Route::get('/public', function () {
     return view('yunia');
 });
 
-Route::get('/', function(Illuminate\Http\Request $request){
-	echo "ini adalah request dari method get". $request->nama;
-});
+// Route::get('/', function(Illuminate\Http\Request $request){
+// 	echo "ini adalah request dari method get". $request->nama;
+// });
 
 
-use Illuminate\Http\Request;
-Route::get('/', function(){
-	echo Form::open(['url'=>'/']).
-		 Form::label('nama').
-		 Form::text('nama', null).
-		 Form::submit('kirim').
-		 Form::close();
-});
+// use Illuminate\Http\Request;
+// Route::get('/', function(){
+// 	echo Form::open(['url'=>'/']).
+// 		 Form::label('nama').
+// 		 Form::text('nama', null).
+// 		 Form::submit('kirim').
+// 		 Form::close();
+// });
 
-Route::post('/', function(Request $request){
-	echo "hasil dari form yang di inputkan adalah : ". $request->nama;
-});
+// Route::post('/', function(Request $request){
+// 	echo "hasil dari form yang di inputkan adalah : ". $request->nama;
+// });
 

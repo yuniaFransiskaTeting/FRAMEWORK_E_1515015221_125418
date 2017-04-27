@@ -55,6 +55,7 @@
                                 <li><a href="{{url('mahasiswa')}}">Data Mahasiswa</a></li>
                                 <li class="divider"></li>
                                 <li><a href="{{url('jadwalmatakuliah')}}">Jadwal Mahasiswa</a></li>
+ 
                             </ul>
                     </li>
                     <li class="dropdown active">
@@ -76,6 +77,9 @@
                                 <li><a href="{{url('ruangan')}}">Ruangan</a></li>
                                 <li><a href="{{url('matakuliah')}}">Matakuliah</a></li>
                             </ul>
+                            <li class="dropdown active">                            
+                               <a href="{{ url('logout')}}"> logout</a>
+                               </li>
                     </li>
                 </ul>
             </div><!--/.nav-collapse -->

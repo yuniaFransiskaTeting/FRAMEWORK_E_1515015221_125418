@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>@yield('page_title','Halaman awal') | Laboratorium Pemrograman FW<</title>
+    <meta charset="utf-8">
+        <title>@yield('page_title','Halaman awal') | Laboratorium Pemrograman FW</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-         
         <link rel="stylesheet" type="text/css"
         href="{{asset('component/bootstrap/dist/css/bootstrap.min.css')}} ">
         <link rel="stylesheet" type="text/css"
@@ -15,10 +14,7 @@
             body {
                 padding-top: 70px;
                 padding-bottom: 70px;
-                width: 50%;
-                display: table;
-                font-weight: 50;
-                font-family: 'Lato';
+                background-color: lightblue;
            }
 
            .starter-template{
@@ -35,37 +31,11 @@
             text-align: right;
            }
 
-/*            html, body {
-                height: 100%;
-            }
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
 
-*/            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
         </style>
     </head>
     <body>
-     <body>
        <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -79,21 +49,24 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+
                     <li class="dropdown active">
-                        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mahasiswa <span class="caret"></span></a>
-                            <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                <li><a href="{{url('mahasiswa')}}">Data Mahasiswa</a></li>
+                        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mahasiswa <span class="caret"></span>
+                        </a>
+                         <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li><a href="{{url('mahasiswa')}}">Data mahasiswa</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{url('jadwalmatakuliah')}}">Jadwal Mahasiswa</a></li>
+                                <li><a href="{{url('jadwal_matakuliah')}}">Jadwal Mahasiswa</a></li>
                             </ul>
                     </li>
+                    
                     <li class="dropdown active">
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dosen <span class="caret"></span>
                         </a>
                          <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                <li><a href="{{url('dosen')}}">Data Dosen</a></li>
+                                <li><a href="{{url('dosenn')}}">Data Dosen</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{url('dosenmatakuliah')}}">Jadwal Dosen Mengajar</a></li>
+                                <li><a href="{{url('dosen_matakuliah')}}">Jadwal Dosen Mengajar</a></li>
                             </ul>
                     </li>
 
@@ -101,21 +74,65 @@
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Pengaturan <span class="caret"></span>
                         </a>
                          <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                <li><a href="{{url('pengguna')}}">Pengguna</a></li>
+                                <li><i class="fa fa-users"><a href="{{url('pengguna')}}">Pengguna</i></a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{url('ruangan')}}">Ruangan</a></li>
-                                <li><a href="{{url('matakuliah')}}">Matakuliah</a></li>
+                                <li><i class="fa fa-map"><a href="{{url('ruangan')}}">ruangan</i></a></li>
+                                <li><i class="fa fa-cogs"><a href="{{url('matakuliah')}}">matakuliah</i></a></li>
                             </ul>
                     </li>
                 </ul>
+
             </div><!--/.nav-collapse -->
-            <div class="container">
-            <div class="content">
-                <div class="title">Praktikum Pemograman Framework</div>
-                <div class="title">Yunia F.T</div>
-                <div class="title">"1515015221"</div>
-            </div>
         </div>
+       </nav>
+
+         <br><br>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info text-center">
+            <div class="panel-heading">
+                <h3>Mahasiswa</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item"><i class="fa fa-graduation-cap  fa-5x"></i></li>
+                <li class="list-group-item"><a href="/mahasiswa" class="btn btn-primary"><i class="fa fa-user"></i> DATA MAHASISWA</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info text-center">
+            <div class="panel-heading">
+                <h3>Dosen</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item"><i class="fa fa-user-secret fa-5x"></i></li>
+                <li class="list-group-item"><a href="/dosenn" class="btn btn-primary"><i class="fa fa-university"></i> DATA DOSEN</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+       <div class="clearfix"></div>
+       <div class="container">
+           @if(Session::has('informasi'))
+                <div class="alert alert-info">
+                    <strong>Informasi :</strong>
+                    {{Session::get('informasi')}}
+                </div>
+            @endif
+            @yield('container')
+       </div>
+       <nav class="navbar navbar-default navbar-fixed-bottom">
+           <footer class="container"><marquee>
+               <!   please dont delete this >
+               created by <a href="http://facebook.com/naufal.saputra.14?fref=ts">
+               <span><i class="fa fa-facebook-square" style="color: #1da1f2"></i>naufal saputra</span></a>
+               gitHub by <a href="https://github.com/Naufalsaputra1/Framework_E_1515015210_160597">
+              <span><i class="fa fa-github" style="color: #1da1f2"></i>naufalsaputra1</span></a> <!--/   please dont delete this    -->
+           </marquee></footer>
+       </nav>
+
        <script type="text/javascript" src="{{ asset('component/jquery/dist/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('component/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script type="text/javascript">
@@ -124,28 +141,6 @@
             });
         </script>
 
-        </div>
-       </nav>
-       <div class="clearfix"></div>
-       <div class="container">
-           @if(Session::has('informasi'))
-                <div class="alert alert-info">
-                    <strong>Informasi :</strong>
-                    {{Session::get('informasi')}}
-
-                </div>
-            @endif
-            @yield('container')
-       </div>
-
-       <nav class="navbar navbar-default navbar-fixed-bottom">
-           <footer class="container">
-               <!   please dont delete this >
-               created by <a href="#">
-               <span><i class="fa fa-facebook" style="color: #1da1f2"></i>@Yunia.F.T</span></a> <!--/   please dont delete this    -->
-           </footer>
-       </nav>
-
-        
-    </body>
+</body>
 </html>
+

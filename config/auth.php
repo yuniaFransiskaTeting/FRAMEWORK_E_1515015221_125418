@@ -12,6 +12,12 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
+        // 'provider'=> [
+        // 'user'=>[
+        //     'driver'=>'eloquent',
+        //     'model'=>App\Pengguna::class,
+        //     ],
+
 
     'defaults' => [
         'guard' => 'web',
